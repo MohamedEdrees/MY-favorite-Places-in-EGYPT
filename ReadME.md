@@ -39,7 +39,7 @@ Let's take an example of the functions that **app.js** holds:
 ''' 
 this.itemClick= function(obj){
       var content = "Articles from NYTimes about this area : "+"<br>";
-      var nytimesUrl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + obj.title + '&sort=newest&api-key=f8f7a03295ab4b4689050e7e60084855';
+      var nytimesUrl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + obj.title + '&sort=newest&api-key=7560cd69c86146ae9ae0397cfb204fc8';
       $.ajax({
           url: nytimesUrl,
           success: function( response ) {
@@ -51,7 +51,7 @@ this.itemClick= function(obj){
               infowindow.setContent(content);
           }
       }).fail(function() {
-          infowindow.setContent("<p>Sorry,We couldn't get the articles from NYTimes!</p>");
+          infowindow.setContent("<p>Sorry, couldn't get articles from NewYork Times!</p>");
       });
       infowindow.open(map, obj);
       // setting the bounce animation on the marker to null to avoid multiple bounce markers
@@ -65,5 +65,5 @@ this.itemClick= function(obj){
 The 'itemClick()' function holds the functionality of the clicking event for both clicking the marker and clicking an item in the list , calls the NYTimes API asynchronously ( and ofcourse in handles the request failure) , seting the content of the infowindow (the popup window that presents the NYTimes articles) as well as creating the animation of the marker when it clicked.
 
 ## How to run this App ?
-Simply by opening **index.html** file with any browser , and also make sure that your firewall doesn't block NYTimes or Google Maps services , if you are having any troubles with the blocking sevices in your operating system you can read this article : https://www.digitaltrends.com/computing/how-to-block-a-website/.
+Simply by opening **index.html** file with any browser , and also make sure that your firewall doesn't block NYTimes or Google Maps services , if you are having any troubles with the blocking sevices in your operating system.
 #BY Mohamed Edrees
