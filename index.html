@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta charset="UTF-8"> 
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <title>Neighborhood Map</title>
+</head>
+<body>
+	<div class="container-fluid">
+      <div class="options-box">
+        <h2>My Favorite Places in Egypt</h2>
+        <div id="cont">
+         	<input id="show-listings" type="button" value="Show Listings" class="btn btn-primary">
+        	<input id="hide-listings" type="button" value="Hide Listings" class="btn btn-danger">
+          <h3>List of places :</h3>
+              Filter places: <input class="mb-3" data-bind = "value: filterQuery"><br>
+              <button class="btn btn-success" id="filter-button" data-bind="click: filterQueryResult">Filter!</button>
+              <button class="btn btn-danger" data-bind="click: filterQueryUncheck">Clear Filter!</button>
+        	<ul id="list-origin" data-bind = "foreach: OAM()" class="list mb-3">
+          		<li style='color: #17a2b8' data-bind="text: $data.title"></li>
+              <button class="btn btn-primary mb-2" data-bind="click: itemClick">Show it on Map!</button>
+    		  </ul>
+          <ul id="list-filter" data-bind = "foreach: SOAM()" class="list mb-3">
+              <li style='color: #17a2b8' data-bind="text: $data.title"></li>
+              <button class="btn btn-primary mb-2" data-bind="click: itemClick">Show it on Map!</button>
+          </ul>
+        </div>
+      </div>
+      <div id="map"></div>
+    </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="scripts/popper.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/knockout-3.2.0.js"></script>
+	<script src="scripts/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJYV0F2XJlrvWaoXLLdL0PqA6mA0OWsG8&callback=initMap"
+    async defer></script>
+</body>
+</html>
